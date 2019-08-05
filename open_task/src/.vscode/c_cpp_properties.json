@@ -1,0 +1,29 @@
+{
+    "configurations": [
+        {
+            "browse": {
+                "databaseFilename": "",
+                "limitSymbolsToIncludedHeaders": true
+            },
+            "includePath": [
+                "/home/kamerider/kamerider_open/devel/include",
+                "/home/kamerider/softwares/turtle_packages/turtlebot/devel/include",
+                "/home/kamerider/softwares/turtle_packages/kobuki/devel/include",
+                "/home/kamerider/softwares/turtle_packages/rocon/devel/include",
+                "/opt/ros/kinetic/include",
+                "/home/kamerider/kamerider_open/src/darknet_ros/darknet_ros/include",
+                "/home/kamerider/kamerider_open/src/open_task/include",
+                "/home/kamerider/kamerider_open/src/kamerider_arm/my_dynamixel_tutorial/include",
+                "/home/kamerider/kamerider_open/src/kamerider_arm/turtlebot_arm_ikfast_plugin/include",
+                "/home/kamerider/kamerider_open/src/kamerider_arm/turtlebot_arm_kinect_calibration/include",
+                "/usr/include"
+            ],
+            "name": "Linux",
+            "intelliSenseMode": "gcc-x64",
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c11",
+            "cppStandard": "c++17"
+        }
+    ],
+    "version": 4
+}
