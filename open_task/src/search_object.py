@@ -85,14 +85,14 @@ class ObjectSearch(object):
 
     def set_params(self):
         self.sub_bbox_topic_name              = rospy.get_param("sub_bbox_topic_name", "/darknet_ros/bounding_boxes")
-        self.sub_navigation_result_topic_name = rospy.get_param("sub_navigation_result_topic_name", "/kamerider_1/navi/output")
+        self.sub_navigation_result_topic_name = rospy.get_param("sub_navigation_result_topic_name", "/kamerider_3/navi/output")
         self.sub_master_target_topic_name     = rospy.get_param("sub_master_target_topic_name", "/image/target")
-        self.pub_search_result_topic_name     = rospy.get_param("pub_search_result_topic_name", "/kamerider_1/image/result")
+        self.pub_search_result_topic_name     = rospy.get_param("pub_search_result_topic_name", "/kamerider_3/image/result")
 
         self.sub_bbox = rospy.Subscriber(self.sub_bbox_topic_name, BoundingBoxes, self.darknet_callback)
         self.sub_nav  = rospy.Subscriber(self.sub_navigation_result_topic_name, String, self.navi_callback)       
         self.sub_target = rospy.Subscriber(self.sub_master_target_topic_name, String, self.master_callback)
-        # self.sub_control = rospy.Subscriber("/kamerider/control", String, self.control_callback)
+        self.sub_control = rospy.Subscriber("/kamerider/control", String, self.control_callback)
         self.pub_result = rospy.Publisher(self.pub_search_result_topic_name, String, queue_size=1)
 
 
@@ -107,13 +107,13 @@ class ObjectSearch(object):
                 rospy.loginfo("Cannot find transform between /odom and /base_link or /base_footprint")
                 rospy.signal_shutdown("tf Exception") 
 
-    '''
+    
     def control_callback(self, msg):
         if msg.data == "stop":
             self._search = FINISH
             os.system("rosnode kill /darknet_ros")
             current_position_found = False
-    '''
+    
     
     def master_callback(self, msg):
         rospy.loginfo("Receive Target Message From Master: {}".format(msg))

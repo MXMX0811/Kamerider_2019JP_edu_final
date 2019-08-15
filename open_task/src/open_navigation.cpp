@@ -60,8 +60,8 @@ public:
         ros::init (argc, argv, "open_navigation");
         ros::NodeHandle nh;
 
-        nh.param<std::string>("sub_master_navigation_topic_name", open_navigation::sub_master_navigation_topic_name, "/kamerider_1/navi/input");
-        nh.param<std::string>("pub_navigation_result_topic_name", open_navigation::pub_navigation_result_topic_name, "/kamerider_1/navi/output");
+        nh.param<std::string>("sub_master_navigation_topic_name", open_navigation::sub_master_navigation_topic_name, "/kamerider_3/navi/input");
+        nh.param<std::string>("pub_navigation_result_topic_name", open_navigation::pub_navigation_result_topic_name, "/kamerider_3/navi/output");
 
         sub_master = nh.subscribe(sub_master_navigation_topic_name, 1, &open_navigation::masterCallback, this);
         pub_result = nh.advertise<std_msgs::String>(pub_navigation_result_topic_name, 1);

@@ -1,5 +1,7 @@
 <!--这是获取位置的launch文件-->
 <launch>
+
+
   <!-- 加载地图 -->
   <arg name="map_file" default="$(find open_task)/maps/314.yaml" /> 
   <node pkg="map_server" type="map_server" name="map_server" args="$(arg map_file)" />
@@ -15,14 +17,15 @@
     <arg name="initial_pose_a" value="$(arg initial_pose_a)"/>
   </include>
 
+
   <!-- 加载move_base -->
   <include file="$(find turtlebot_navigation)/launch/includes/move_base.launch.xml"/>
 
   <!-- 3D visualization -->
   <include file="$(find turtlebot_rviz_launchers)/launch/view_navigation.launch" />
-  <!-- 
-        手柄操作设置如下
-  -->
-	<node pkg="open_task" type="open_navigation" name="open_navigation" output="screen" launch-prefix="xterm -e"/>
-      
+
+	
+  <node pkg="open_task" type="open_navigation" name="open_navigation" output="screen" launch-prefix="xterm -e"/>
+  
+
 </launch>
