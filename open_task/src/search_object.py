@@ -19,6 +19,7 @@ from geometry_msgs.msg import Twist, Point, Quaternion
 import tf
 from rbx1_nav.transform_utils import quat_to_angle, normalize_angle
 from math import radians, copysign, sqrt, pow, pi
+from sound_play.libsoundplay import SoundClient
 
 
 IMAGE_DIR = '../result'
@@ -53,6 +54,12 @@ class ObjectSearch(object):
 
         self._center_x = 320
         self._object_center_x = 0
+        
+        # Initialize sound client
+        self.sh = SoundClient(blocking=True)
+        rospy.sleep(1)
+        self.sh.stopAll()
+        rospy.sleep(1)
 
         # Odom parameters
         rate = 20
@@ -120,6 +127,10 @@ class ObjectSearch(object):
         print("target",self._target)
         #if self._target==None:
         self._target = msg.data
+        self._target = self._target.replace('\r','')
+        text = "I will find "+self._target
+       	
+        
 
     
     def navi_callback(self, msg):
@@ -236,7 +247,7 @@ class ObjectSearch(object):
                 if self._search == PROCESS:
                     if self._target:
                         rospy.loginfo("Start to find target object: {}".format(self._target))
-                        os.system("gnome-terminal -x bash -c 'roslaunch darknet_ros yolo_v3.launch'")
+                        os.system("gnome-terminal -x bash -c 'roslaunch darknet_ros yolo_robocup.launch'")
                         rospy.loginfo("Start Darknet Please Wait...")
                         rospy.sleep(15)
                         break
@@ -285,6 +296,10 @@ class ObjectSearch(object):
                     print ("Current Object Pixel Area： {}".format(self._area))
                     if self._area > 10000:
                         rospy.loginfo("Target Object Reached!")
+                        result = "Do you want "+self._target
+                        self.sh.say(result)
+                        rospy.sleep(5)
+                        self.sh.say("I found the target")
                         break
                     else:
                         position = Point()

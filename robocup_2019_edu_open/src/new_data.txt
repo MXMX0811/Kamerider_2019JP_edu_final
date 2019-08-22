@@ -1,26 +1,26 @@
-1 Are you hungry?
+1 Does it need electricty?
 2 3 7
-2 Do you want to eat food?
-4 5 4
-3 Do you want to go to the toilet?
-6 7 3
-4 Do you want to eat a burger?
+2 Does it have screen?
+4 10 4
+3 Do you want banana?
+6 12 3
+4 Do you want cell phone?
 8 9 2
-5 Do you want to drink juice?
+5 Do you want mouse?
 10 11 2
-6 Go find someone to help
+6 banana
 0 0 1
-7 Do you want us to help you with your luggage?
-14 15 2
-8 hamburger
+7 bottle
 0 0 1
-9 French fries
+8 cell phone
 0 0 1
-10 fruit juice
+9 laptop
 0 0 1
-11 water
+10 mouse
 0 0 1
-12 
+11 keyboard
+0 0 1
+12 bottle
 0 0 0
 13 
 0 0 0

@@ -403,8 +403,8 @@ void open::query(int root)//这里就是一个建立树的过程,基本上就一
 			cout<<"finish understanding what you want to say!"<<endl;
             finish = true;
             str_pub.data = "go to the shop";
-            speak("now i will get water for you ");
-            answer.data = "bottle";
+            speak("now i will find the object ");
+            answer.data = tree[root].ans;
             pub_cmd.publish(str_pub);
             pub_answer.publish(answer);
 			return ;
