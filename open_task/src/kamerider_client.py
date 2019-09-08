@@ -1,6 +1,10 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
-
+"""
+    Date: 2019/08/22
+    Author: Zhang Mingxin
+    Abstract: Code for open project(client)
+"""
 import socket
 import rospy
 from std_msgs.msg import String
